@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+</head>
+<body>
+<div class="container offset-sm-3 col-md-8 mt-lg-5">
+  <form>
+    <div class="row nt-2">
+
+      <div th:if="${param.error}" class="col-sm-8">
+        <p class="alert alert-danger">Invalid Username or Password</p>
+      </div>
+
+      <div th:if="${param.verified}" class="col-sm-8">
+        <p class="alert alert-info">This account has already been verified, please log in here.</p>
+      </div>
+
+      <div th:if="${param.valid}" class="col-sm-8">
+        <p class="alert alert-info">Email verified successfully, please log in here.</p>
+      </div>
+
+      <div th:if="${param.logout}" class="col-sm-8">
+        <p class="alert alert-warning">You have been logged out.</p>
+      </div>
+
+      <h2 class="mb-4">User Login Form</h2>
+      <div class="mb-3 row">
+        <label for="email" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="email" name="email" required autofocus="autofocus">
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label for="password" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="password" name="password" required autofocus="autofocus">
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <button type="submit" name="login" id="login" class="btn btn-success">Login</button>
+        <span>Not registered yet? <a href="#" th:href="@{/registration/registration-form}">Register</a></span>
+        <div class="vr"></div>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
