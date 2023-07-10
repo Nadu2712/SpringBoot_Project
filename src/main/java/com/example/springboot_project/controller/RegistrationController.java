@@ -31,6 +31,6 @@ public class RegistrationController {
         User user = userService.registerUser(registrationRequest);
         //verification email event
         publisher.publishEvent(new RegistrationCompleteEvent(user,""));
-        return "redirect:/registration//registration-form?success";
+        return "redirect:/registration/registration-form?success";
     }
 }
