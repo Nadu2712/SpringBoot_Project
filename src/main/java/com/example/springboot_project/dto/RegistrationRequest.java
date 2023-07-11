@@ -1,9 +1,7 @@
 package com.example.springboot_project.dto;
 
 import com.example.springboot_project.entity.Role;
-import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.NaturalId;
 
 import java.util.Collection;
 

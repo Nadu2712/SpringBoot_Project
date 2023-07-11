@@ -21,7 +21,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/","/registration/**")
+                .requestMatchers("/","/registration/**","/login","/error")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
@@ -38,6 +38,5 @@ public class SecurityConfig {
                 .logoutSuccessUrl("/")
                 .and()
                 .build();
-
     }
 }
