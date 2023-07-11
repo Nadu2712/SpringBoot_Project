@@ -25,12 +25,16 @@ public class UserService implements IUserService {
 
     @Override
     public User registerUser(RegistrationRequest registrationRequest) {
-        return new User(registrationRequest.getFirstName(),
+        User user = new User(
+                registrationRequest.getFirstName(),
                 registrationRequest.getLastName(),
                 registrationRequest.getEmail(),
                 passwordEncoder.encode(registrationRequest.getPassword()),
-                List.of(new Role("ROLE_USER")));
+                List.of(new Role("ROLE_USER"))
+        );
+        return userRepository.save(user);
     }
+
 
     @Override
     public User findByEmail(String email) {

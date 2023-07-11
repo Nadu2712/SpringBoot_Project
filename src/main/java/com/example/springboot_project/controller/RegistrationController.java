@@ -33,7 +33,6 @@ public class RegistrationController {
     @PostMapping("/register")
     public String registerUser(@ModelAttribute("user") RegistrationRequest registrationRequest, HttpServletRequest request){
         User user = userService.registerUser(registrationRequest);
-        //verification email event
         publisher.publishEvent(new RegistrationCompleteEvent(user, UrlUtil.getApplicationUrl(request)));
         return "redirect:/registration/registration-form?success";
     }
