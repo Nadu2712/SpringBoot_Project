@@ -13,9 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RequiredArgsConstructor
 public class UserController {
     private final IUserService userService;
-@GetMapping
-    public String getUser(Model model){
-        model.addAttribute("user", userService.getAllUsers());
+    @GetMapping
+    public String getUsers(Model model){
+        model.addAttribute("users", userService.getAllUsers());
         return "users";
     }
 }
